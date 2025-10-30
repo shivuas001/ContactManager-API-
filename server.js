@@ -1,7 +1,7 @@
-const express = require(express);
+const express = require('express');
 const app = express();
 
-app.get('/', ()=>{
+app.get('/', (req, res)=>{
     res.json({message:"contact manager api is running"});
 });
 
