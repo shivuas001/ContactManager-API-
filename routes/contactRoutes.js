@@ -5,13 +5,25 @@ const Contact = require('../models/contactModel');
 
 
 // Display all contacts
-router.get('/', (req, res)=>{
-    res.json({message:"this is for showing all contacts"})
+router.get('/', async(req, res)=>{
+    try {
+        const contacts = await Contact.find({});
+        res.json(contacts);
+    } catch (error) {
+        console.log(error);
+        
+    }
 });
 
 //Display Single contacts
-router.get('/:id', (req, res)=>{
-    res.json({message:"this is for showing Single contacts"})
+router.get('/:id', async(req, res)=>{
+    try {
+        const contact = await Contact.findById(req.params.id);
+        res.json(contact);
+    } catch (error) {
+        console.log(error);
+        
+    }
 });
 
 //Creating contacts
