@@ -4,13 +4,14 @@
   "description": "this is contact manager api",
   "main": "index.js",
   "scripts": {
-    "start":"npm run start",
+    "start": "npm run start",
     "dev": "nodemon server"
   },
   "author": "A SHIVA KUMAR",
   "license": "ISC",
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "mongoose": "^8.19.2"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
