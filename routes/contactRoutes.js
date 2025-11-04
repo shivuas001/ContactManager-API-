@@ -41,13 +41,27 @@ router.post('/', async(req, res)=>{
 });
 
 //Updating contacts
-router.put('/:id', (req, res)=>{
-    res.json({message:"this is for Updating contacts"})
+router.put('/:id', async(req, res)=>{
+    console.log(req.body)
+    const { name, phone, email, address } = req.body ;
+
+    try {
+        const contact = await Contact.findByIdAndUpdate(req.params.id, req.body, {new: true,});
+        res.json(contact);
+    } catch (error) {
+        console.log(error);
+    }
 });
 
 //Deleting contacts
-router.delete('/:id', (req, res)=>{
-    res.json({message:"this is for Deleting contacts"})
+router.delete('/:id', async(req, res)=>{
+    try {
+        const contact = await Contact.findByIdAndDelete(req.params.id);
+        res.json(contact);
+    } catch (error) {
+        console.log(error);
+        
+    }
 });
 
 
